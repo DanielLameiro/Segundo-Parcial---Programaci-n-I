@@ -17,7 +17,8 @@
         {
             $sql = "SELECT usr.complete_name autor, pub.fecha_hora, pub.cuerpo 
             FROM publicacion pub, usuario usr 
-            WHERE pub.autor = usr.username;";
+            WHERE pub.autor = usr.username 
+            ORDER BY pub.fecha_hora DESC;";
             $filas = $this -> conexionBaseDeDatos -> query($sql) -> fetch_all(MYSQLI_ASSOC);
             $resultado = array();
 

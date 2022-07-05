@@ -8,6 +8,7 @@
             $u -> NombreCompleto = $context['post']['nombre'];
             $u -> Password = $context['post']['password'];
             $u -> Guardar();
+            header("Location:/login");
         }
     }
 

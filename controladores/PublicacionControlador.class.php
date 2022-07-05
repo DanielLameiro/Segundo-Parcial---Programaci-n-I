@@ -11,7 +11,7 @@
             $publicaciones = $publicacion -> ObtenerPublicaciones();
             $resultado = array();
             
-            foreach ($publicacion as $elemento)
+            foreach ($publicaciones as $elemento)
             {
                 $array = array
                 (
