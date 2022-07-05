@@ -5,3 +5,10 @@ CREATE TABLE usuario(
     password varchar(255)
 );
 
+CREATE TABLE publicacion(
+    autor varchar(50),
+    fecha_hora datetime,
+    cuerpo varchar(255),
+    primary key (autor, fecha_hora),
+    foreign key (autor) references usuario(username)
+);
