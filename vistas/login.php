@@ -13,6 +13,7 @@
     <title>Document</title>
 </head>
 <body>
+    <h3>Estás ingresando al blog de la flamante</h3>
     <h1>Fabrica de Chacinados - Bienvenido</h1>
     
     <form action="/login" method="post">
