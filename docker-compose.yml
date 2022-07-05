@@ -23,3 +23,5 @@ services:
       - MYSQL_DATABASE=base
     volumes:
       - ./mysql:/var/lib/mysql
+      - ./db.sql:/docker-entrypoint-initdb.d/db.sql
+    user: "1000:50"
