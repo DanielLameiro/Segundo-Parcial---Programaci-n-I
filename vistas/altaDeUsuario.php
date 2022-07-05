@@ -12,7 +12,8 @@
         Usuario <input type="text" name="usuario"> <br />
         Nombre completo <input type="text" name="nombre"> <br />
         Password <input type="password" name="password"> <br />
-        <input type="submit" value="Crear Usuario">
+        <input type="submit" value="Crear Usuario"></br>
+        <a href="/login">Volver</a>
     </form>
 </body>
 </html>
