@@ -17,9 +17,9 @@
         public function Guardar()
         {
             $sql = "INSERT INTO publicacion VALUES ('" . 
-            $this -> $Autor . "', 
+            $this -> Autor . "', 
             CURRENT_TIMESTAMP(), '" . 
-            $this -> $Cuerpo . "');";
+            $this -> Cuerpo . "');";
 
             return $this -> conexionBaseDeDatos -> query($sql);
         }        

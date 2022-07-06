@@ -5,11 +5,11 @@
     class PublicacionControlador
     {
 
-        public static function Alta($cuerpo)
+        public static function Alta($context)
         {
             $publicacion = new PublicacionModelo();
             $publicacion -> Autor = $_SESSION['nombreUsuario'];
-            $publicacion -> Cuerpo = $cuerpo;
+            $publicacion -> Cuerpo = $context['post']['cuerpo'];
 
             $publicacion -> Guardar();
             header("Location: /");
