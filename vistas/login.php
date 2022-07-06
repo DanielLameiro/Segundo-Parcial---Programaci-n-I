@@ -20,9 +20,10 @@
         Usuario <input type="text" name="usuario"> <br />
         Password <input type="password" name="password"> <br />
         <input type="submit" value="Iniciar Sesión">
-    </form>
+    </form></br>
 
-    <a href="/usuarios/alta">Crear Usuario</a> <br /><br />
+    <a href="/usuarios/alta">Crear Usuario</a> <br />
+    <a href="/">Volver</a> <br /><br />
     
     <?php if(isset($parametros['error']) && $parametros['error'] === true ) :?>
         <div style="color: red;">Credenciales invalidas.</div>

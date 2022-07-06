@@ -5,13 +5,14 @@
     class PublicacionControlador
     {
 
-        public static function Alta($autor,$cuerpo)
+        public static function Alta($cuerpo)
         {
             $publicacion = new PublicacionModelo();
-            $publicacion -> Autor = $autor;
+            $publicacion -> Autor = $_SESSION['nombreUsuario'];
             $publicacion -> Cuerpo = $cuerpo;
 
             $publicacion -> Guardar();
+            header("Location: /");
         }
 
         public static function ListarTodas()
