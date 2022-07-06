@@ -21,6 +21,7 @@ services:
       - MYSQL_USER=usuario
       - MYSQL_PASSWORD=1234
       - MYSQL_DATABASE=base
+      - TZ=America/Montevideo
     volumes:
       - ./mysql:/var/lib/mysql
       - ./db.sql:/docker-entrypoint-initdb.d/db.sql
