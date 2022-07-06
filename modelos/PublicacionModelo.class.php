@@ -12,8 +12,20 @@
         {
             parent::__construct();
         }
+        
 
-        public function ObtenerPublicaciones()
+        public function Guardar()
+        {
+            $sql = "INSERT INTO publicacion VALUES ('" . 
+            $this -> $Autor . "', 
+            CURRENT_TIMESTAMP(), '" . 
+            $this -> $Cuerpo . "');";
+
+            return $this -> conexionBaseDeDatos -> query($sql);
+        }        
+
+
+        public function ObtenerTodas()
         {
             $sql = "SELECT usr.complete_name autor, pub.fecha_hora, pub.cuerpo 
             FROM publicacion pub, usuario usr 

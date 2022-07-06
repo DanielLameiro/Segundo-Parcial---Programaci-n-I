@@ -5,10 +5,19 @@
     class PublicacionControlador
     {
 
-        public static function ListarPublicaciones()
+        public static function Alta($autor,$cuerpo)
         {
             $publicacion = new PublicacionModelo();
-            $publicaciones = $publicacion -> ObtenerPublicaciones();
+            $publicacion -> Autor = $autor;
+            $publicacion -> Cuerpo = $cuerpo;
+
+            $publicacion -> Guardar();
+        }
+
+        public static function ListarTodas()
+        {
+            $publicacion = new PublicacionModelo();
+            $publicaciones = $publicacion -> ObtenerTodas();
             $resultado = array();
             
             foreach ($publicaciones as $elemento)

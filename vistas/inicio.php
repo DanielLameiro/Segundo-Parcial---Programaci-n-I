@@ -15,14 +15,14 @@
         if(isset($_SESSION['autenticado']))
             {
                 echo "Bienvenido " . $_SESSION['nombreUsuario'];
-                echo "<br /><a href='/cerrarSesion'>Salir</a></br></br><hr></br>";
+                echo "<br /><a href='/cerrarSesion'>Salir</a></br></br>Últimos mensajes:<hr></br>";
             }
             else
             {
-                echo "<a href='/login'>Iniciar sesión</a></br></br><hr></br>";
+                echo "<a href='/login'>Iniciar sesión</a></br></br>Últimos mensajes:<hr></br>";
             }
 
-            $publicaciones = PublicacionControlador::ListarPublicaciones();
+            $publicaciones = PublicacionControlador::ListarTodas();
 
             foreach ($publicaciones as $publicacion)
             {
