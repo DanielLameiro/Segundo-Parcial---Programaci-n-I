@@ -10,6 +10,8 @@ services:
       - ./:/var/www/html
     environment:
       - DOCUMENT_ROOT=/var/www/html/public
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
   mysql:
     image: mysql:5.7
     tty: true 
@@ -25,4 +27,3 @@ services:
     volumes:
       - ./mysql:/var/lib/mysql
       - ./db.sql:/docker-entrypoint-initdb.d/db.sql
-    user: "1000:50"
