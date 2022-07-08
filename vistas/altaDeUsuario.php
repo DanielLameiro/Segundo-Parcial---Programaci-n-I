@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,8 +8,9 @@
     <title>Document</title>
 
 </head>
+
 <body>
-     <form action="/usuario/alta" method="post">
+    <form action="/usuario/alta" method="post">
         Usuario <input type="text" name="usuario"> <br />
         Nombre completo <input type="text" name="nombre"> <br />
         Password <input type="password" name="password"> <br />
@@ -16,4 +18,5 @@
         <a href="/login">Volver</a>
     </form>
 </body>
+
 </html>

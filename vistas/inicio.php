@@ -1,45 +1,41 @@
+<?php
+require "../utils/autoload.php";
+$publicaciones = PublicacionControlador::ListarTodas();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
-    <?php 
 
-        require "../utils/autoload.php";
+    <?php if (isset($_SESSION['autenticado'])) : ?>
+        Bienvenido <?= $_SESSION['nombreUsuario'] ?>
+        </br><br /><a href='/publicaciones/redactar'>Redactar publicación</a>
+        <br /><a href='/cerrarSesion'>Salir</a></br></br>
 
-        if(isset($_SESSION['autenticado']))
-            {
-                echo "Bienvenido " . $_SESSION['nombreUsuario'];
-                echo "</br><br /><a href='/publicaciones/redactar'>Redactar publicación</a>";
-                echo "<br /><a href='/cerrarSesion'>Salir</a></br></br>";
-                echo "Últimas publicaciones:<hr></br>";
-            }
-            else
-            {
-                echo "<a href='/login'>Iniciar sesión</a></br></br>";
-                echo "Últimas publicaciones:<hr></br>";
-            }
+    <?php else : ?>
 
-            $publicaciones = PublicacionControlador::ListarTodas();
+        <a href='/login'>Iniciar sesión</a></br></br>
+    <?php endif; ?>
 
-            foreach ($publicaciones as $publicacion)
-            {
-                $autor = $publicacion['autor'];
-                $fecha_hora = $publicacion['fecha_hora'];
-                $cuerpo = $publicacion['cuerpo'];
+    Últimas publicaciones:
+    <hr></br>
 
-                echo "Publicado por " . $autor . " el " . $fecha_hora . "</br></br>";
-                echo "Mensaje: </br>";
-                echo $cuerpo . "</br></br><hr></br>";
+    <?php foreach ($publicaciones as $publicacion) : ?>
+        Publicado por <?= $publicacion['autor']; ?>
+        el <?= $publicacion['fecha_hora']; ?> </br></br>
+        Mensaje: </br> <?= $publicacion['cuerpo']; ?></br></br>
+        <hr></br>
 
-        }
+    <?php endforeach ?>
 
-    ?>
-    
 </body>
+
 </html>

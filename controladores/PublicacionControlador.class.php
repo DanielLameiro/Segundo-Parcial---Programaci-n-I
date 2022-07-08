@@ -7,6 +7,12 @@
 
         public static function Alta($context)
         {
+            if(!isset($_SESSION['autenticado']))
+            {
+                header("Location:/login");
+                die;
+            }
+            
             $publicacion = new PublicacionModelo();
             $publicacion -> Autor = $_SESSION['nombreUsuario'];
             $publicacion -> Cuerpo = $context['post']['cuerpo'];
