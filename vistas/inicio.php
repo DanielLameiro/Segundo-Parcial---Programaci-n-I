@@ -1,6 +1,8 @@
 <?php
-require "../utils/autoload.php";
-$publicaciones = PublicacionControlador::ListarTodas();
+
+    require "../utils/autoload.php";
+    $publicaciones = PublicacionControlador::ListarTodas();
+    
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +18,7 @@ $publicaciones = PublicacionControlador::ListarTodas();
 <body>
 
     <?php if (isset($_SESSION['autenticado'])) : ?>
+
         Bienvenido <?= $_SESSION['nombreUsuario'] ?>
         </br><br /><a href='/publicaciones/redactar'>Redactar publicación</a>
         <br /><a href='/cerrarSesion'>Salir</a></br></br>
@@ -23,12 +26,14 @@ $publicaciones = PublicacionControlador::ListarTodas();
     <?php else : ?>
 
         <a href='/login'>Iniciar sesión</a></br></br>
+
     <?php endif; ?>
 
     Últimas publicaciones:
     <hr></br>
 
     <?php foreach ($publicaciones as $publicacion) : ?>
+
         Publicado por <?= $publicacion['autor']; ?>
         el <?= $publicacion['fecha_hora']; ?> </br></br>
         Mensaje: </br> <?= $publicacion['cuerpo']; ?></br></br>

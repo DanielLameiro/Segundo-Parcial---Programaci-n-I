@@ -7,37 +7,38 @@
 
         public static function Alta($context)
         {
-            if(!isset($_SESSION['autenticado']))
+            
+            if (!isset($_SESSION['autenticado']))
             {
                 header("Location:/login");
                 die;
             }
-            
-            $publicacion = new PublicacionModelo();
-            $publicacion -> Autor = $_SESSION['nombreUsuario'];
-            $publicacion -> Cuerpo = $context['post']['cuerpo'];
 
-            $publicacion -> Guardar();
+            $publicacion = new PublicacionModelo();
+            $publicacion->Autor = $_SESSION['nombreUsuario'];
+            $publicacion->Cuerpo = $context['post']['cuerpo'];
+
+            $publicacion->Guardar();
             header("Location: /");
         }
 
         public static function ListarTodas()
         {
+
             $publicacion = new PublicacionModelo();
-            $publicaciones = $publicacion -> ObtenerTodas();
+            $publicaciones = $publicacion->ObtenerTodas();
             $resultado = array();
-            
+
             foreach ($publicaciones as $elemento)
             {
-                $array = array
-                (
-                    'autor' => $elemento -> Autor,
-                    'fecha_hora' => $elemento -> FechaYHora,
-                    'cuerpo' => $elemento -> Cuerpo,
+                $array = array(
+                    'autor' => $elemento->Autor,
+                    'fecha_hora' => $elemento->FechaYHora,
+                    'cuerpo' => $elemento->Cuerpo,
                 );
-                array_push($resultado,$array);
+                array_push($resultado, $array);
             }
             return $resultado;
         }
 
-    }
+}

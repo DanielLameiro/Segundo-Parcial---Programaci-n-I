@@ -1,9 +1,12 @@
 <?php
-require "../utils/autoload.php";
 
-if (isset($_SESSION['autenticado']))
-    header("Location: /");
+    require "../utils/autoload.php";
+
+    if (isset($_SESSION['autenticado']))
+        header("Location: /");
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,22 +18,26 @@ if (isset($_SESSION['autenticado']))
 </head>
 
 <body>
+
     <h3>Estás ingresando al blog de la flamante</h3>
     <h1>Fabrica de Chacinados - Bienvenido</h1>
 
     <form action="/login" method="post">
+
         Usuario <input type="text" name="usuario"> <br />
         Password <input type="password" name="password"> <br />
         <input type="submit" value="Iniciar Sesión">
+
     </form></br>
 
     <a href="/usuarios/alta">Crear Usuario</a> <br />
     <a href="/">Volver</a> <br /><br />
 
     <?php if (isset($parametros['error']) && $parametros['error'] === true) : ?>
-        <div style="color: red;">Credenciales invalidas.</div>
-    <?php endif; ?>
 
+        <div style="color: red;">Credenciales invalidas.</div>
+        
+    <?php endif; ?>
 
 </body>
 

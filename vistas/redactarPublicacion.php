@@ -11,10 +11,12 @@
 <body>
 
     <form action="/publicaciones/redactar" method="post">
+
         <p>Redactar publicación:</p>
         <textarea name="cuerpo" rows="5" cols="50"></textarea></br>
         <input type="submit" value="Publicar"></br></br>
         <a href="/">Volver</a>
+        
     </form>
 
 </body>
